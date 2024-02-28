@@ -6,7 +6,6 @@ const fileupload = require("express-fileupload");
 const errorHandler = require("./middleware/error");
 const { logger, morganMiddleware } = require("./logs/winston");
 const routes = require("./routes/setup");
-const dynamoroutes = require("./routes/dynamo");
 const path = require("path")
 const cookieParser = require('cookie-parser')
 //load env vars
@@ -17,13 +16,6 @@ const app = express();
 //body parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(fileupload({
-    limits: {
-        fileSize: 10000000 //1mb
-    },
-    abortOnLimit: true,
-    responseOnLimit: 'File size limit has been reached'
-}));
 
 //Set Security Headers
 app.use(helmet({ crossOriginResourcePolicy: false }));
@@ -50,10 +42,6 @@ app.use(function (req, res, next) {
     res.header('Content-Security-Policy', "frame-ancestors directive")
     next()
 })
-
-var __dirname = path.resolve()
-app.use('/upload', express.static(path.join(__dirname, '/upload')))
-// app.use('/Selfie', express.static(path.join(__dirname, '/Selfie')))
 
 //Mount routes
 app.use("/api/v1/opensource", routes);

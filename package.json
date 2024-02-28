@@ -4,6 +4,8 @@
   "description": "tbills ",
   "main": "server.js",
   "scripts": {
+    "opensource": "nodemon server.js",
+
     "test": "tbills"
   },
   "repository": {
