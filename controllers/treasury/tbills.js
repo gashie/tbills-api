@@ -1,7 +1,7 @@
 const asynHandler = require("../../middleware/async");
 const { sendResponse, CatchHistory } = require("../../helper/utilfunc");
-const GlobalModel = require("../../model/Global");
-const { autoProcessServiceToken } = require("../../helper/autoCreateEnrollment");
+// const GlobalModel = require("../../model/Global");
+// const { autoProcessServiceToken } = require("../../helper/autoCreateEnrollment");
 const systemDate = new Date().toISOString().slice(0, 19).replace("T", " ");
 
 exports.SearchCustomer = asynHandler(async (req, res, next) => {

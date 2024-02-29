@@ -1,8 +1,8 @@
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const asynHandler = require("../../middleware/async");
-const Model = require("../../model/Account")
+// const Model = require("../../model/Account")
 const { sendResponse, sendCookie, clearResponse, CatchHistory } = require("../../helper/utilfunc");
-const { Update } = require("../../model/Global");
+// const { Update } = require("../../model/Global");
 const systemDate = new Date().toISOString().slice(0, 19).replace("T", " ");
 
 // @desc Login controller
